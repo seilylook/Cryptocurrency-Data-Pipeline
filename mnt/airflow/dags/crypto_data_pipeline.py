@@ -2,6 +2,7 @@ from airflow import DAG
 from airflow.operators.http_operator import SimpleHttpOperator
 from airflow.operators.python import PythonOperator
 from airflow.models import Variable
+from airflow.operators.bash import BashOperator
 
 from datetime import datetime, timedelta
 from requests import Session
@@ -10,7 +11,6 @@ import json
 import os
 
 API_KEY = Variable.get("PUBLIC_API_KEY")
-
 CRYPTO_LIST = [
     "BTC",
     "ETH",
@@ -23,8 +23,9 @@ CRYPTO_LIST = [
     "TON",
     "ADA",
 ]
+OUTPUT_DIR = os.path.join(os.environ["AIRFLOW_HOME"], "dags", "files")
+URL = "https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest?symbol="
 
-url = "https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest?symbol="
 params = {
     "start": "1",
     "limit": "5000",
@@ -48,18 +49,14 @@ default_args = {
 def _get_crypto_data():
     session = Session()
     session.headers.update(headers)
-    output_dir = "/opt/airflow/dags/files/"
     try:
         for crypto in CRYPTO_LIST:
-            response = session.get(url + crypto)
+            response = session.get(URL + crypto)
             response.raise_for_status()
             data = response.json()
-            # print("----------")
-            # print(json.dumps(data, indent=2))  # Pretty print the JSON data
-            # print("----------")
 
             filename = f"{crypto}_data.json"
-            filepath = os.path.join(output_dir, filename)
+            filepath = os.path.join(OUTPUT_DIR, filename)
 
             with open(filepath, "w") as f:
                 json.dump(data, f, indent=2)
@@ -70,6 +67,27 @@ def _get_crypto_data():
         print(e)
     except Exception as e:
         print(f"Unexpected error: {e}")
+
+
+def _generate_hdfs_commands():
+    files = os.listdir(OUTPUT_DIR)
+    # print(files)
+
+    commands = []
+    for filename in files:
+        if filename.endswith(".json"):
+            commands.append(
+                f"hdfs dfs -put -f {os.path.join(OUTPUT_DIR, filename)} /crypto"
+            )
+
+    return commands
+
+
+def _save_files_to_hdfs():
+    commands = _generate_hdfs_commands()
+    for command in commands:
+        os.system(command)
+        print(f"Executed: {command}")
 
 
 with DAG(
@@ -94,4 +112,19 @@ with DAG(
         python_callable=_get_crypto_data,
     )
 
-    is_crypto_value_available >> get_crypto_data
+    make_directory_to_hdfs = BashOperator(
+        task_id="make_directory_to_hdfs",
+        bash_command="hdfs dfs -mkdir -p /crypto",
+    )
+
+    save_files_to_hdfs = PythonOperator(
+        task_id="save_files_to_hdfs",
+        python_callable=_save_files_to_hdfs,
+    )
+
+    (
+        is_crypto_value_available
+        >> get_crypto_data
+        >> make_directory_to_hdfs
+        >> save_files_to_hdfs
+    )
