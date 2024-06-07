@@ -7,10 +7,24 @@ from datetime import datetime, timedelta
 from requests import Session
 from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 import json
+import os
 
 API_KEY = Variable.get("PUBLIC_API_KEY")
 
-url = "https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/listings/latest"
+CRYPTO_LIST = [
+    "BTC",
+    "ETH",
+    "USDT",
+    "BNB",
+    "SOL",
+    "USDC",
+    "XRP",
+    "DOGE",
+    "TON",
+    "ADA",
+]
+
+url = "https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest?symbol="
 params = {
     "start": "1",
     "limit": "5000",
@@ -34,14 +48,23 @@ default_args = {
 def _get_crypto_data():
     session = Session()
     session.headers.update(headers)
-
+    output_dir = "/opt/airflow/dags/files/"
     try:
-        response = session.get(url, params=params)
-        response.raise_for_status()  # Raise an HTTPError for bad responses
-        data = response.json()  # Correctly parse JSON response
-        print("----------")
-        print(json.dumps(data, indent=2))  # Pretty print the JSON data
-        print("----------")
+        for crypto in CRYPTO_LIST:
+            response = session.get(url + crypto)
+            response.raise_for_status()
+            data = response.json()
+            # print("----------")
+            # print(json.dumps(data, indent=2))  # Pretty print the JSON data
+            # print("----------")
+
+            filename = f"{crypto}_data.json"
+            filepath = os.path.join(output_dir, filename)
+
+            with open(filepath, "w") as f:
+                json.dump(data, f, indent=2)
+
+            print(f"Data for {crypto} saved to {filepath}")
 
     except (ConnectionError, Timeout, TooManyRedirects) as e:
         print(e)

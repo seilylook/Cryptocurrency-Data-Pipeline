@@ -1,0 +1,57 @@
+{
+  "status": {
+    "timestamp": "2024-06-07T03:21:17.228Z",
+    "error_code": 0,
+    "error_message": null,
+    "elapsed": 1,
+    "credit_count": 1,
+    "notice": null
+  },
+  "data": {
+    "DOGE": {
+      "id": 6394,
+      "name": "9yjnz6muax",
+      "symbol": "DOGE",
+      "slug": "0zvq3m6jnlvc",
+      "is_active": 9040,
+      "is_fiat": null,
+      "circulating_supply": 6320,
+      "total_supply": 2307,
+      "max_supply": 5829,
+      "date_added": "2024-06-07T03:21:17.228Z",
+      "num_market_pairs": 9296,
+      "cmc_rank": 2212,
+      "last_updated": "2024-06-07T03:21:17.228Z",
+      "tags": [
+        "ke5z05xdhnt",
+        "et2p5t9qbkj",
+        "ivsi63m3gej",
+        "ni87t8o7jk",
+        "wg552ahc1k",
+        "1a87tvnkak8",
+        "ajf8qr7lkwu",
+        "edi2h60kcbv",
+        "3u7hgrpez2d",
+        "nnvxslci0p"
+      ],
+      "platform": null,
+      "self_reported_circulating_supply": null,
+      "self_reported_market_cap": null,
+      "quote": {
+        "USD": {
+          "price": 0.5395531920561758,
+          "volume_24h": 0.3846183121500266,
+          "volume_change_24h": 0.08242499703153228,
+          "percent_change_1h": 0.43899393410224796,
+          "percent_change_24h": 0.13836577817693185,
+          "percent_change_7d": 0.6731137034277945,
+          "percent_change_30d": 0.24735196698918305,
+          "market_cap": 0.8780313077254074,
+          "market_cap_dominance": 8941,
+          "fully_diluted_market_cap": 0.3902284390183328,
+          "last_updated": "2024-06-07T03:21:17.228Z"
+        }
+      }
+    }
+  }
+}

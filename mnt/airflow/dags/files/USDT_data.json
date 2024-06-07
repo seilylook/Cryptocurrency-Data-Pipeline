@@ -1,0 +1,57 @@
+{
+  "status": {
+    "timestamp": "2024-06-07T03:21:14.113Z",
+    "error_code": 0,
+    "error_message": null,
+    "elapsed": 1,
+    "credit_count": 1,
+    "notice": null
+  },
+  "data": {
+    "USDT": {
+      "id": 9906,
+      "name": "od1bpw5h6sd",
+      "symbol": "USDT",
+      "slug": "dtothnu2jgo",
+      "is_active": 8662,
+      "is_fiat": null,
+      "circulating_supply": 8531,
+      "total_supply": 2114,
+      "max_supply": 1542,
+      "date_added": "2024-06-07T03:21:14.113Z",
+      "num_market_pairs": 8553,
+      "cmc_rank": 9573,
+      "last_updated": "2024-06-07T03:21:14.113Z",
+      "tags": [
+        "zvitthlk8v",
+        "5deaj0vixdo",
+        "yn2ybyovve8",
+        "8vuw4rx4une",
+        "ikwtfe1ktat",
+        "vy3yf0lsz4d",
+        "mub8y9dl6s7",
+        "56bjmnyl4e",
+        "lg3zftsrn1",
+        "m7tvylad62l"
+      ],
+      "platform": null,
+      "self_reported_circulating_supply": null,
+      "self_reported_market_cap": null,
+      "quote": {
+        "USD": {
+          "price": 0.4159665624710145,
+          "volume_24h": 0.4402472410384084,
+          "volume_change_24h": 0.7603008562798343,
+          "percent_change_1h": 0.33399747665608204,
+          "percent_change_24h": 0.07969099435492644,
+          "percent_change_7d": 0.905673581285352,
+          "percent_change_30d": 0.8448379244576782,
+          "market_cap": 0.6665833691229166,
+          "market_cap_dominance": 9198,
+          "fully_diluted_market_cap": 0.178075006366456,
+          "last_updated": "2024-06-07T03:21:14.113Z"
+        }
+      }
+    }
+  }
+}

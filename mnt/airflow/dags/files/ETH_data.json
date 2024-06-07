@@ -1,0 +1,57 @@
+{
+  "status": {
+    "timestamp": "2024-06-07T03:21:13.375Z",
+    "error_code": 0,
+    "error_message": null,
+    "elapsed": 1,
+    "credit_count": 1,
+    "notice": null
+  },
+  "data": {
+    "ETH": {
+      "id": 7913,
+      "name": "0gwq4n90vkv4",
+      "symbol": "ETH",
+      "slug": "f3hpfpo46fw",
+      "is_active": 8523,
+      "is_fiat": null,
+      "circulating_supply": 6502,
+      "total_supply": 7356,
+      "max_supply": 3745,
+      "date_added": "2024-06-07T03:21:13.375Z",
+      "num_market_pairs": 4996,
+      "cmc_rank": 353,
+      "last_updated": "2024-06-07T03:21:13.375Z",
+      "tags": [
+        "48r661irr0r",
+        "pvcupstehjj",
+        "x91f012mm0j",
+        "9g69glsvce",
+        "m108008t1g",
+        "bc4bvf2e20j",
+        "6ls4cjrmdcr",
+        "mi4qkdoswxp",
+        "tbtz7pxyq6",
+        "vfiw49s4w9e"
+      ],
+      "platform": null,
+      "self_reported_circulating_supply": null,
+      "self_reported_market_cap": null,
+      "quote": {
+        "USD": {
+          "price": 0.8181056819788914,
+          "volume_24h": 0.7974325133418754,
+          "volume_change_24h": 0.757653577599378,
+          "percent_change_1h": 0.24243309523628298,
+          "percent_change_24h": 0.8223298999396638,
+          "percent_change_7d": 0.6724286380632574,
+          "percent_change_30d": 0.4151680566869056,
+          "market_cap": 0.38571675346255163,
+          "market_cap_dominance": 268,
+          "fully_diluted_market_cap": 0.5843560630354183,
+          "last_updated": "2024-06-07T03:21:13.375Z"
+        }
+      }
+    }
+  }
+}

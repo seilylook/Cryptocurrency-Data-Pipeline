@@ -1,0 +1,57 @@
+{
+  "status": {
+    "timestamp": "2024-06-07T03:21:15.485Z",
+    "error_code": 0,
+    "error_message": null,
+    "elapsed": 1,
+    "credit_count": 1,
+    "notice": null
+  },
+  "data": {
+    "SOL": {
+      "id": 4910,
+      "name": "s36nko19q4q",
+      "symbol": "SOL",
+      "slug": "4xcjksltr7i",
+      "is_active": 6946,
+      "is_fiat": null,
+      "circulating_supply": 9666,
+      "total_supply": 463,
+      "max_supply": 9534,
+      "date_added": "2024-06-07T03:21:15.485Z",
+      "num_market_pairs": 5758,
+      "cmc_rank": 7197,
+      "last_updated": "2024-06-07T03:21:15.485Z",
+      "tags": [
+        "zinqtksowoq",
+        "mz4u0yoqc2",
+        "wozbrqf9rri",
+        "9djtm4xeqpj",
+        "hskrpr5oecq",
+        "hr61530wuz",
+        "t2q9sn454o",
+        "ga1i6pp86au",
+        "cyadk961mn",
+        "p2xqkl939uq"
+      ],
+      "platform": null,
+      "self_reported_circulating_supply": null,
+      "self_reported_market_cap": null,
+      "quote": {
+        "USD": {
+          "price": 0.4909542295787248,
+          "volume_24h": 0.9483733462337902,
+          "volume_change_24h": 0.5817171463506332,
+          "percent_change_1h": 0.9916665088350831,
+          "percent_change_24h": 0.7809499124319996,
+          "percent_change_7d": 0.9790346327128017,
+          "percent_change_30d": 0.5997901730107815,
+          "market_cap": 0.9165238782455021,
+          "market_cap_dominance": 4016,
+          "fully_diluted_market_cap": 0.9194349530436188,
+          "last_updated": "2024-06-07T03:21:15.485Z"
+        }
+      }
+    }
+  }
+}

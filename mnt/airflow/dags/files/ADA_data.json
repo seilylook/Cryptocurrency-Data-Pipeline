@@ -1,0 +1,57 @@
+{
+  "status": {
+    "timestamp": "2024-06-07T03:21:18.418Z",
+    "error_code": 0,
+    "error_message": null,
+    "elapsed": 1,
+    "credit_count": 1,
+    "notice": null
+  },
+  "data": {
+    "ADA": {
+      "id": 5843,
+      "name": "i73l4guqlp9",
+      "symbol": "ADA",
+      "slug": "0yxieymdfa3p",
+      "is_active": 1990,
+      "is_fiat": null,
+      "circulating_supply": 2350,
+      "total_supply": 2081,
+      "max_supply": 7207,
+      "date_added": "2024-06-07T03:21:18.418Z",
+      "num_market_pairs": 609,
+      "cmc_rank": 8178,
+      "last_updated": "2024-06-07T03:21:18.418Z",
+      "tags": [
+        "wsso8wpvcr",
+        "vt87ds167yr",
+        "gikisr6q36b",
+        "cr5tbw4idqh",
+        "zn4nr1r118",
+        "mntubq505jg",
+        "wc9nl79gsrf",
+        "wk24k5aqwtp",
+        "pkj5wtmn9b9",
+        "e78ebro1ez"
+      ],
+      "platform": null,
+      "self_reported_circulating_supply": null,
+      "self_reported_market_cap": null,
+      "quote": {
+        "USD": {
+          "price": 0.9675582827168494,
+          "volume_24h": 0.49314056963365527,
+          "volume_change_24h": 0.32882676908442177,
+          "percent_change_1h": 0.6618797198815292,
+          "percent_change_24h": 0.7304060792786564,
+          "percent_change_7d": 0.35801700138130554,
+          "percent_change_30d": 0.434422916926932,
+          "market_cap": 0.9481190173658001,
+          "market_cap_dominance": 1198,
+          "fully_diluted_market_cap": 0.5842719643896035,
+          "last_updated": "2024-06-07T03:21:18.418Z"
+        }
+      }
+    }
+  }
+}
