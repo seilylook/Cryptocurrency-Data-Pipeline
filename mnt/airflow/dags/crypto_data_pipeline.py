@@ -3,6 +3,8 @@ from airflow.operators.http_operator import SimpleHttpOperator
 from airflow.operators.python import PythonOperator
 from airflow.models import Variable
 from airflow.operators.bash import BashOperator
+from airflow.providers.apache.hive.operators.hive import HiveOperator
+
 
 from datetime import datetime, timedelta
 from requests import Session
@@ -122,9 +124,31 @@ with DAG(
         python_callable=_save_files_to_hdfs,
     )
 
+    create_crypto_data_table = HiveOperator(
+        task_id="create_crypto_data_table",
+        hive_cli_conn_id="hive_conn",
+        hql="""
+            CREATE EXTERNAL TABLE IF NOT EXISTS crypto_data(
+                symbol STRING,
+                id BIGINT,
+                price DOUBLE,
+                volume_24h DOUBLE,
+                volume_change_24h DOUBLE,
+                percent_change_1h DOUBLE,
+                percent_change_24h DOUBLE,
+                percent_change_7d DOUBLE,
+                percent_change_30d DOUBLE
+            )
+            ROW FORMAT DELIMITED
+            FIELDS TERMINATED BY ','
+            STORED AS TEXTFILE
+        """,
+    )
+
     (
         is_crypto_value_available
         >> get_crypto_data
         >> make_directory_to_hdfs
         >> save_files_to_hdfs
+        >> create_crypto_data_table
     )
